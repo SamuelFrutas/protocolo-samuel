@@ -1,5 +1,5 @@
 # PROTOCOLO OFICIAL DE DESENVOLVIMENTO SAMUEL
-Versão 1.2 — 22/11/2026
+Versão 1.3 — 22/11/2026
 
 Este documento é a fonte oficial das regras de trabalho para os projetos de sistemas de Samuel. Deve ser consultado no início de cada novo chat e atualizado quando uma regra for aprovada.
 
@@ -75,7 +75,24 @@ Se o protótipo já tiver sido aprovado e o escopo não mudar, não exigir nova 
 - Não adicionar serviços, custos, integrações ou complexidade sem necessidade.
 - Não inventar que algo foi implementado ou está funcionando.
 
-## 10. Testes e publicação
+## 10. Organização de pastas e arquivos para manutenção
+Todo projeto deve adotar uma estrutura clara, previsível e consistente, pensada para facilitar manutenção, evolução e localização de responsabilidades.
+
+- Organizar o código por responsabilidade e, quando fizer sentido, por funcionalidade/domínio; evitar concentrar funcionalidades diferentes em um único arquivo ou uma única pasta.
+- Separar camadas com responsabilidades distintas, como interface, componentes, páginas, regras de negócio, serviços/integrações, acesso a dados, configuração e rotas/API, respeitando a arquitetura e a tecnologia do projeto.
+- Manter arquivos coesos e com tamanho razoável. Quando um arquivo começar a acumular responsabilidades diferentes ou ficar difícil de entender, dividir em módulos menores com nomes claros.
+- Evitar os dois extremos: arquivos gigantes que fazem tudo e fragmentação excessiva em arquivos minúsculos sem ganho real. A divisão deve melhorar compreensão, testes e reutilização.
+- Agrupar componentes, serviços, modelos, validações e testes relacionados de forma intuitiva. Manter testes próximos ao código ou em uma pasta espelhada, conforme o padrão escolhido para o projeto.
+- Centralizar configurações compartilhadas e utilitários realmente reutilizados; não criar abstrações genéricas prematuramente.
+- Usar nomes descritivos, consistentes e previsíveis para pastas, arquivos, funções e componentes.
+- Manter documentação técnica mínima sobre a estrutura, os principais módulos e como executar/testar o sistema.
+- Antes de criar ou reorganizar pastas, respeitar os padrões já existentes quando forem bons. Em auditorias, identificar dívidas de organização e corrigi-las gradualmente, sem reescritas desnecessárias.
+- Registrar a estrutura escolhida no `.project/PROJECT_MASTER.md` ou em um documento de arquitetura quando a complexidade justificar.
+- Ao revisar uma alteração, verificar se o código foi colocado no módulo correto e se a mudança não concentrou responsabilidades indevidas.
+
+A estrutura deve ser adequada ao tamanho do projeto: simples no início, organizada para crescer e sem complexidade artificial.
+
+## 11. Testes e publicação
 - Testar as funcionalidades alteradas e as áreas afetadas.
 - Corrigir falhas e repetir apenas os testes relevantes.
 - Não ficar preso em ciclos de testes sem progresso; diagnosticar a causa e escolher a correção.
@@ -84,7 +101,7 @@ Se o protótipo já tiver sido aprovado e o escopo não mudar, não exigir nova 
 - Nunca afirmar que um deploy terminou sem verificar o resultado e abrir a URL publicada.
 - Produção só com autorização explícita de Samuel.
 
-## 11. Recuperação de contexto
+## 12. Recuperação de contexto
 No início de cada sessão ou chat novo:
 1. Identificar o repositório e branch corretos.
 2. Ler `.project/PROJECT_MASTER.md`, `ROADMAP.md`, `PROJECT_STATE.md`, `DECISIONS.md` e `NEXT_TASK.md`.
@@ -92,11 +109,11 @@ No início de cada sessão ou chat novo:
 4. Retomar a próxima tarefa registrada, sem refazer o que já funciona.
 Se os arquivos estiverem ausentes ou desatualizados, reconstruir o estado a partir do repositório e do histórico disponível, marcar incertezas e atualizar os registros.
 
-## 12. Critérios de conclusão
+## 13. Critérios de conclusão
 Uma etapa só termina quando seus critérios verificáveis forem atendidos, a documentação estiver atualizada e o resultado puder ser demonstrado.
 Um sistema só é declarado concluído quando as funcionalidades aprovadas estiverem implementadas, testes relevantes passarem, pendências obrigatórias estiverem resolvidas e houver link funcional para acesso.
 
-## 13. Preferências de interação complementares
+## 14. Preferências de interação complementares
 As preferências pessoais de Samuel continuam válidas quando não contradizem este protocolo:
 - Usar botões ou comandos clicáveis para iniciar a continuidade de uma tarefa quando a interface oferecer esse recurso e houver uma ação concreta a executar. O botão deve iniciar a ação, não ser decorativo.
 - Destacar a conclusão e a próxima ação de forma fácil de localizar, com texto claro e conciso. Não usar letras grandes ou destaque exagerado como obrigação.
@@ -107,5 +124,5 @@ As preferências pessoais de Samuel continuam válidas quando não contradizem e
 
 Em caso de conflito entre uma preferência antiga e este documento, prevalece este protocolo. Preferências que não conflitam continuam em vigor.
 
-## 14. Regra central
+## 15. Regra central
 **Não perder o objetivo. Não esquecer o plano. Não improvisar mudanças. Não ficar apenas testando. Não pedir ao usuário o que pode ser verificado diretamente. Entregar algo funcional e visível.**
