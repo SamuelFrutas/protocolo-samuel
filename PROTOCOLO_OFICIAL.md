@@ -1,5 +1,5 @@
 # PROTOCOLO OFICIAL DE DESENVOLVIMENTO SAMUEL
-Versão 1.3 — 22/11/2026
+Versão 1.4 — 22/11/2026
 
 Este documento é a fonte oficial das regras de trabalho para os projetos de sistemas de Samuel. Deve ser consultado no início de cada novo chat e atualizado quando uma regra for aprovada.
 
@@ -56,6 +56,9 @@ Manter um painel de progresso em `.project/PROJECT_STATE.md` e apresentá-lo em 
 - Etapas concluídas, etapa atual e próximas etapas.
 - Tarefas pendentes e bloqueios.
 - Link para a versão visualizável quando existir.
+- **Separar os indicadores de auditoria, desenvolvimento, validação/testes e publicação.** Essas frentes medem coisas diferentes e não podem ser somadas ou apresentadas como se fossem um único percentual.
+- O percentual de cada frente deve ter escopo e critérios explícitos. Uma auditoria só pode ser declarada 100% concluída quando todas as verificações previstas para aquela auditoria estiverem concluídas ou quando as limitações restantes estiverem claramente registradas e excluídas do escopo com justificativa.
+- Execuções em andamento, verificações pendentes, bloqueios ou funcionalidades não verificadas não podem ser apresentadas como concluídas.
 Nunca inventar percentuais nem marcar como concluído algo que não foi verificado.
 
 ## 8. Protótipo navegável obrigatório
@@ -92,12 +95,14 @@ Todo projeto deve adotar uma estrutura clara, previsível e consistente, pensada
 
 A estrutura deve ser adequada ao tamanho do projeto: simples no início, organizada para crescer e sem complexidade artificial.
 
-## 11. Testes e publicação
+## 11. Testes, entregas visíveis e publicação
 - Testar as funcionalidades alteradas e as áreas afetadas.
 - Corrigir falhas e repetir apenas os testes relevantes.
 - Não ficar preso em ciclos de testes sem progresso; diagnosticar a causa e escolher a correção.
 - Disponibilizar ambiente de preview/staging o mais cedo possível e atualizá-lo durante o desenvolvimento.
-- Distinguir claramente protótipo, preview/staging e produção.
+- **Priorizar entregas demonstráveis:** relatórios de testes são evidência técnica, mas não substituem uma versão navegável ou funcional quando o produto exige interface. Entregar links acessíveis para protótipo, preview ou versão de avaliação assim que estiverem disponíveis.
+- Quando a avaliação visual de Samuel for necessária, fornecer o link e explicar objetivamente o que ele deve avaliar. Não exigir que ele execute verificações técnicas que o assistente possa realizar.
+- Distinguir claramente protótipo, preview/staging e produção; informar qual ambiente está sendo apresentado e quais limitações existem.
 - Nunca afirmar que um deploy terminou sem verificar o resultado e abrir a URL publicada.
 - Produção só com autorização explícita de Samuel.
 
@@ -126,3 +131,16 @@ Em caso de conflito entre uma preferência antiga e este documento, prevalece es
 
 ## 15. Regra central
 **Não perder o objetivo. Não esquecer o plano. Não improvisar mudanças. Não ficar apenas testando. Não pedir ao usuário o que pode ser verificado diretamente. Entregar algo funcional e visível.**
+
+## 16. Segurança de dados e migrações
+Antes de alterar um banco de dados existente, especialmente quando houver dados de produção ou históricos que precisam ser preservados:
+- Inspecionar o esquema real, as constraints, índices, relacionamentos, versões de migração e comportamento atual antes de propor a alteração.
+- Verificar duplicidades, valores inválidos, referências órfãs e outras condições que possam impedir a migração ou causar perda/inconsistência.
+- Confirmar a regra de negócio e a chave de unicidade corretas; não criar constraints ou índices por suposição.
+- Preferir migrações aditivas, compatíveis e reversíveis quando tecnicamente possível. Não apagar, truncar, sobrescrever ou recriar dados existentes como atalho para corrigir incompatibilidades.
+- Planejar e documentar pré-condições, impacto, estratégia de execução e recuperação/rollback. Fazer backup quando aplicável e disponível.
+- Testar a migração em ambiente isolado ou cópia representativa antes de qualquer aplicação em produção.
+- Não executar migrações, scripts ou alterações destrutivas em produção sem autorização explícita de Samuel.
+- Após a alteração, verificar integridade, constraints, dados preservados e compatibilidade com as versões da aplicação.
+- Registrar a migração, riscos, validações e resultado em `.project/DECISIONS.md` e/ou `.project/CHANGELOG.md`.
+
