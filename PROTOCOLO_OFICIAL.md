@@ -74,6 +74,23 @@ Todo projeto novo deve começar com a apresentação de um protótipo navegável
 - Para sistemas desktop, web responsivos ou multiplataforma, adaptar o protótipo aos dispositivos e fluxos relevantes para o produto.
 - Se o protótipo já tiver sido aprovado e o escopo não mudar, não exigir nova aprovação desnecessária. Se houver mudança relevante de escopo ou de experiência, apresentar a parte alterada para nova validação antes de implementá-la.
 
+
+### 8.1. Persistência de dados nos protótipos
+
+Todo protótipo deve ser funcional também na manipulação e persistência dos dados, utilizando o armazenamento local do navegador, sem exigir banco de dados ou backend de produção nesta etapa.
+
+- Utilizar `localStorage` para dados simples e de pequeno volume; utilizar `IndexedDB` quando houver maior volume, estrutura mais complexa ou necessidade de operações mais robustas.
+- Não confundir `localhost` com armazenamento: localhost é um endereço de servidor local; `localStorage` e `IndexedDB` são mecanismos de armazenamento do navegador.
+- Cadastros, tarefas, configurações e demais alterações previstas no protótipo devem ser salvos localmente e recuperados automaticamente ao recarregar ou reabrir o protótipo no mesmo navegador e origem.
+- Implementar de verdade as operações previstas para os fluxos principais, como cadastrar, consultar, editar e excluir registros, conforme o escopo aprovado. Não usar botões meramente decorativos nem interações que só alterem a aparência sem executar a ação correspondente.
+- Incluir dados fictícios ou conteúdo inicial de demonstração quando isso ajudar a avaliação, sem inserir dados reais ou depender de serviços de produção.
+- Prever estados vazios, confirmação de ações relevantes e tratamento básico de erros de leitura e gravação.
+- Manter a camada de acesso aos dados organizada e separada da interface, para facilitar a futura substituição do armazenamento local pelo banco de dados e backend definitivos.
+- Deixar claro que os dados locais pertencem ao navegador/dispositivo e não são sincronizados entre dispositivos nem compartilhados entre usuários, salvo se houver uma implementação específica para isso.
+- Antes de apresentar o protótipo, verificar persistência após atualização da página e reabertura no mesmo navegador, além das operações principais de cadastro, edição e exclusão quando aplicáveis.
+
+O uso de armazenamento local é obrigatório nos protótipos quando houver dados a manipular. Ele não substitui a arquitetura, segurança, autenticação, sincronização ou banco de dados previstos para o sistema definitivo.
+
 ## 9. Desenvolvimento e preservação
 - Auditar o repositório e o sistema existente antes de reconstruir.
 - Preservar funcionalidades e dados que já funcionam.
