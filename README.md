@@ -3,7 +3,7 @@
 Repositório oficial das regras de planejamento, desenvolvimento, continuidade e entrega dos sistemas de Samuel.
 
 ## Documento principal
-- [Protocolo Oficial de Desenvolvimento Samuel — v1.1](./PROTOCOLO_OFICIAL.md)
+- [Protocolo Oficial de Desenvolvimento Samuel — v1.3](./PROTOCOLO_OFICIAL.md)
 
 ## Como usar
 Todo novo projeto e todo novo chat de desenvolvimento deve consultar o protocolo e manter os arquivos de controle `.project/` no repositório do sistema.
