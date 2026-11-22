@@ -1,5 +1,5 @@
 # PROTOCOLO OFICIAL DE DESENVOLVIMENTO SAMUEL
-Versão 1.5 — 22/11/2026
+Versão 1.6 — 22/11/2026
 
 Este documento é a fonte oficial das regras de trabalho para os projetos de sistemas de Samuel. Deve ser consultado no início de cada novo chat e atualizado quando uma regra for aprovada.
 
@@ -144,12 +144,17 @@ Antes de alterar um banco de dados existente, especialmente quando houver dados 
 - Após a alteração, verificar integridade, constraints, dados preservados e compatibilidade com as versões da aplicação.
 - Registrar a migração, riscos, validações e resultado em `.project/DECISIONS.md` e/ou `.project/CHANGELOG.md`.
 
-## 17. Conferência independente antes de entregar
-Antes de apresentar uma resposta, cálculo, resultado ou alteração como concluída, fazer uma conferência proporcional à importância e ao risco da tarefa, sem transformar a verificação em uma explicação longa para Samuel.
-- Em somas e cálculos numéricos, conferir o resultado duas vezes por métodos independentes sempre que possível (por exemplo, somar em ordem diferente ou agrupar parcelas de outra forma).
-- Se as duas conferências divergirem, não escolher uma resposta por aproximação: refazer o cálculo, localizar a origem da diferença e conferir novamente até obter um resultado consistente. Só então apresentar o valor final.
-- Em tarefas técnicas, revisar a alteração realizada e verificar o resultado com os meios adequados, como testes relevantes, inspeção do diff, build, consulta ao estado publicado ou comparação com os requisitos.
-- Em respostas factuais, conferir os pontos centrais com o contexto ou as fontes disponíveis e sinalizar incertezas reais, em vez de preencher lacunas com suposições.
-- A conferência deve ser interna e objetiva. Não precisa mostrar todas as etapas de verificação; basta apresentar a resposta ou entrega final e, quando útil, informar brevemente que foi conferida.
-- A profundidade da conferência deve ser proporcional ao risco: ser cuidadoso sem repetir verificações desnecessárias nem atrasar tarefas simples.
+## 17. Revisão obrigatória do próprio desenvolvimento
+Toda alteração técnica deve ser conferida pelo próprio assistente antes de ser apresentada como concluída. O objetivo é verificar se aquilo que foi desenvolvido ou corrigido realmente atende ao que foi solicitado, e não apenas informar que a implementação foi feita.
 
+- Depois de criar ou alterar código, revisar o diff e conferir se a mudança está correta, completa e limitada ao escopo pretendido.
+- Verificar se a correção resolve a causa do problema, e não apenas oculta o sintoma ou introduz um contorno frágil.
+- Conferir possíveis efeitos colaterais nas funcionalidades relacionadas e preservar comportamentos que já funcionavam.
+- Executar as verificações adequadas à alteração, como testes relevantes, análise estática, typecheck, build ou validação manual em preview. Escolher verificações proporcionais; não repetir testes sem motivo.
+- Quando uma verificação falhar, investigar a causa, corrigir e conferir novamente. Não declarar a alteração concluída enquanto houver falha relevante sem explicação e registro.
+- Para interfaces, abrir e percorrer o fluxo alterado em tamanho de tela adequado, especialmente no celular quando a experiência mobile fizer parte dos requisitos.
+- Para banco de dados, APIs, integrações e automações, conferir também o comportamento real da operação e a integridade dos dados, usando ambiente seguro e respeitando as autorizações de produção.
+- Atualizar a documentação e o estado do projeto somente depois de conferir o resultado efetivo.
+- Comunicar a Samuel de forma curta: o que foi alterado e como foi conferido. Não despejar logs ou etapas internas, a menos que ele peça.
+
+A revisão deve ser independente da implementação: não basta reler a intenção ou confiar que o código parece correto. É necessário confrontar a alteração com os requisitos e obter evidência adequada de que funciona. A profundidade da conferência deve ser proporcional ao risco e à importância da mudança, sem criar burocracia ou atrasar entregas simples.
