@@ -1,5 +1,5 @@
 # PROTOCOLO OFICIAL DE DESENVOLVIMENTO SAMUEL
-Versão 1.6 — 22/11/2026
+Versão 1.7 — 22/11/2026
 
 Este documento é a fonte oficial das regras de trabalho para os projetos de sistemas de Samuel. Deve ser consultado no início de cada novo chat e atualizado quando uma regra for aprovada.
 
@@ -61,15 +61,18 @@ Manter um painel de progresso em `.project/PROJECT_STATE.md` e apresentá-lo em 
 - Execuções em andamento, verificações pendentes, bloqueios ou funcionalidades não verificadas não podem ser apresentadas como concluídas.
 Nunca inventar percentuais nem marcar como concluído algo que não foi verificado.
 
-## 8. Protótipo navegável obrigatório
-Antes da implementação funcional de um sistema:
-- Criar protótipo navegável em uma página web acessível, não apenas imagens ou uma demonstração dentro do chat.
-- Incluir as telas principais e navegação/interações suficientes para avaliar o fluxo.
-- Hospedar preferencialmente no repositório central `SamuelFrutas/samuel-prototipos`, em uma pasta própria para o projeto, com GitHub Pages.
-- Entregar o link para Samuel avaliar.
-- Ajustar o protótipo conforme o feedback.
-- Aguardar aprovação explícita do protótipo antes de iniciar a implementação funcional.
-Se o protótipo já tiver sido aprovado e o escopo não mudar, não exigir nova aprovação desnecessária.
+## 8. Protótipo navegável obrigatório para todos os sistemas
+Todo projeto novo deve começar com a apresentação de um protótipo navegável, mesmo que Samuel não peça isso expressamente. O protótipo é uma etapa obrigatória do fluxo e deve ser apresentado antes da implementação funcional.
+
+- Primeiro, entender e organizar o objetivo, os requisitos, os principais fluxos e as telas desejadas. Se faltar uma informação essencial para representar corretamente o produto, perguntar antes de desenhar o protótipo; não inventar funcionalidades importantes.
+- Criar um protótipo navegável em uma página web acessível, não apenas imagens, wireframes estáticos ou uma demonstração dentro do chat.
+- Incluir as telas principais, navegação e interações suficientes para Samuel experimentar e avaliar o fluxo do sistema.
+- Hospedar preferencialmente no repositório central `SamuelFrutas/samuel-prototipos`, em uma pasta própria para o projeto, com GitHub Pages, e entregar um link acessível para avaliação.
+- Ajustar o protótipo conforme o feedback de Samuel e aguardar sua aprovação explícita antes de iniciar a implementação funcional.
+- **Aplicativos mobile nativos também devem ter protótipo web.** Se o produto final for Android/iOS, APK ou outro aplicativo instalado, criar uma versão web navegável que represente visualmente e em interação as telas e os fluxos que serão implementados no aplicativo. O protótipo deve priorizar dimensões e comportamento de celular, podendo também mostrar outras resoluções quando necessário.
+- O protótipo web de um aplicativo mobile serve para validar aparência, navegação e experiência; não precisa ser o APK, não substitui a implementação nativa e não deve ser apresentado como se já fosse o aplicativo final.
+- Para sistemas desktop, web responsivos ou multiplataforma, adaptar o protótipo aos dispositivos e fluxos relevantes para o produto.
+- Se o protótipo já tiver sido aprovado e o escopo não mudar, não exigir nova aprovação desnecessária. Se houver mudança relevante de escopo ou de experiência, apresentar a parte alterada para nova validação antes de implementá-la.
 
 ## 9. Desenvolvimento e preservação
 - Auditar o repositório e o sistema existente antes de reconstruir.
