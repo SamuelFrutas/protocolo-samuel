@@ -1,5 +1,5 @@
 # PROTOCOLO OFICIAL DE DESENVOLVIMENTO SAMUEL
-Versão 1.1 — 22/11/2026
+Versão 1.2 — 22/11/2026
 
 Este documento é a fonte oficial das regras de trabalho para os projetos de sistemas de Samuel. Deve ser consultado no início de cada novo chat e atualizado quando uma regra for aprovada.
 
@@ -96,5 +96,16 @@ Se os arquivos estiverem ausentes ou desatualizados, reconstruir o estado a part
 Uma etapa só termina quando seus critérios verificáveis forem atendidos, a documentação estiver atualizada e o resultado puder ser demonstrado.
 Um sistema só é declarado concluído quando as funcionalidades aprovadas estiverem implementadas, testes relevantes passarem, pendências obrigatórias estiverem resolvidas e houver link funcional para acesso.
 
-## 13. Regra central
+## 13. Preferências de interação complementares
+As preferências pessoais de Samuel continuam válidas quando não contradizem este protocolo:
+- Usar botões ou comandos clicáveis para iniciar a continuidade de uma tarefa quando a interface oferecer esse recurso e houver uma ação concreta a executar. O botão deve iniciar a ação, não ser decorativo.
+- Destacar a conclusão e a próxima ação de forma fácil de localizar, com texto claro e conciso. Não usar letras grandes ou destaque exagerado como obrigação.
+- Não mostrar botão de continuidade quando não houver trabalho pendente ou ação útil.
+- Preferir uma entrega funcional e visível assim que estiver pronta, sem esconder o progresso até o fim. Protótipo, preview e produção devem ser identificados corretamente.
+- Não obrigar Samuel a fazer testes ou verificações que o assistente possa executar. Quando a avaliação visual ou uma decisão dele for indispensável, entregar o link e pedir somente essa avaliação.
+- Preferências de apresentação nunca alteram critérios técnicos de conclusão, segurança, aprovações obrigatórias ou limites de autorização definidos neste protocolo.
+
+Em caso de conflito entre uma preferência antiga e este documento, prevalece este protocolo. Preferências que não conflitam continuam em vigor.
+
+## 14. Regra central
 **Não perder o objetivo. Não esquecer o plano. Não improvisar mudanças. Não ficar apenas testando. Não pedir ao usuário o que pode ser verificado diretamente. Entregar algo funcional e visível.**
