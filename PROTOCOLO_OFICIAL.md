@@ -1,5 +1,5 @@
 # PROTOCOLO OFICIAL DE DESENVOLVIMENTO SAMUEL
-Versão 1.4 — 22/11/2026
+Versão 1.5 — 22/11/2026
 
 Este documento é a fonte oficial das regras de trabalho para os projetos de sistemas de Samuel. Deve ser consultado no início de cada novo chat e atualizado quando uma regra for aprovada.
 
@@ -143,4 +143,13 @@ Antes de alterar um banco de dados existente, especialmente quando houver dados 
 - Não executar migrações, scripts ou alterações destrutivas em produção sem autorização explícita de Samuel.
 - Após a alteração, verificar integridade, constraints, dados preservados e compatibilidade com as versões da aplicação.
 - Registrar a migração, riscos, validações e resultado em `.project/DECISIONS.md` e/ou `.project/CHANGELOG.md`.
+
+## 17. Conferência independente antes de entregar
+Antes de apresentar uma resposta, cálculo, resultado ou alteração como concluída, fazer uma conferência proporcional à importância e ao risco da tarefa, sem transformar a verificação em uma explicação longa para Samuel.
+- Em somas e cálculos numéricos, conferir o resultado duas vezes por métodos independentes sempre que possível (por exemplo, somar em ordem diferente ou agrupar parcelas de outra forma).
+- Se as duas conferências divergirem, não escolher uma resposta por aproximação: refazer o cálculo, localizar a origem da diferença e conferir novamente até obter um resultado consistente. Só então apresentar o valor final.
+- Em tarefas técnicas, revisar a alteração realizada e verificar o resultado com os meios adequados, como testes relevantes, inspeção do diff, build, consulta ao estado publicado ou comparação com os requisitos.
+- Em respostas factuais, conferir os pontos centrais com o contexto ou as fontes disponíveis e sinalizar incertezas reais, em vez de preencher lacunas com suposições.
+- A conferência deve ser interna e objetiva. Não precisa mostrar todas as etapas de verificação; basta apresentar a resposta ou entrega final e, quando útil, informar brevemente que foi conferida.
+- A profundidade da conferência deve ser proporcional ao risco: ser cuidadoso sem repetir verificações desnecessárias nem atrasar tarefas simples.
 
